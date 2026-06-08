@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إلى رينو ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff758c,#ff7eb3,#ffb199,#ffd6e0);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+width:90%;
+max-width:700px;
+padding:35px;
+text-align:center;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+border-radius:25px;
+color:white;
+box-shadow:0 0 25px rgba(0,0,0,.2);
+z-index:5;
+}
+
+h1{
+margin-bottom:20px;
+font-size:36px;
+}
+
+p{
+font-size:21px;
+line-height:1.9;
+}
+
+.buttons{
+margin-top:35px;
+position:relative;
+height:120px;
+}
+
+button{
+padding:14px 30px;
+border:none;
+border-radius:50px;
+font-size:20px;
+cursor:pointer;
+}
+
+#yes{
+background:white;
+color:#ff4f7b;
+}
+
+#no{
+position:absolute;
+background:#ff4f7b;
+color:white;
+right:120px;
+}
+
+#loveMessage{
+display:none;
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:25px;
+animation:float linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="question">
+
+<h1>إلى رينو ❤️</h1>
+
+<p>
+يا بنوتي...
+<br><br>
+عندي سؤال صغير 🤍
+<br><br>
+هل ما زلتِ تحبين بودتي؟ 🥺
+</p>
+
+<div class="buttons">
+<button id="yes" onclick="showMessage()">نعم ❤️</button>
+<button id="no">لا 🙈</button>
+</div>
+
+</div>
+
+<div class="card" id="loveMessage">
+
+<h1>إلى رنيم ❤️</h1>
+
+<p>
+يا بنوتي...
+<br><br>
+يمكن حصل بينا زعل،
+ويمكن أخطأت في حاجات ضايقتك.
+<br><br>
+لكن عمري ما نسيت مكانتك عندي.
+<br><br>
+كل اللي حبيت أقوله إنك شخص غالي عندي،
+وإني بتمنى لك السعادة في كل وقت.
+<br><br>
+ولو في يوم حبيتي نتكلم بهدوء،
+هيكون شيء يسعدني.
+<br><br>
+بحبك يا رينو ❤️
+<br><br>
+— عبدالله (بودتي) 🤍
+</p>
+
+</div>
+
+<script>
+
+const noBtn=document.getElementById("no");
+
+function moveButton(){
+const x=Math.random()*(window.innerWidth-120);
+const y=Math.random()*(window.innerHeight-80);
+
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
+}
+
+noBtn.addEventListener("mouseover",moveButton);
+noBtn.addEventListener("click",moveButton);
+
+function showMessage(){
+document.getElementById("question").style.display="none";
+document.getElementById("loveMessage").style.display="block";
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+
+const arr=["❤️","💕","💖","💗","💘"];
+heart.innerHTML=arr[Math.floor(Math.random()*arr.length)];
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
